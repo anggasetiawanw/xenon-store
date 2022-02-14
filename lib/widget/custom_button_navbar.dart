@@ -5,6 +5,7 @@ import 'package:xenon_store/cubit/page_cubit.dart';
 
 class CustomButtonNavbar extends StatelessWidget {
   final int index;
+
   const CustomButtonNavbar({Key? key, required this.index}) : super(key: key);
 
   @override

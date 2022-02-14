@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:xenon_store/pages/home/chat_page.dart';
-import 'package:xenon_store/pages/home/home_page.dart';
-import 'package:xenon_store/pages/home/profile_page.dart';
-import 'package:xenon_store/pages/home/whislist_page.dart';
+import 'package:xenon_store/ui/home/chat_page.dart';
+import 'package:xenon_store/ui/home/home_page.dart';
+import 'package:xenon_store/ui/home/profile_page.dart';
+import 'package:xenon_store/ui/home/whislist_page.dart';
 import 'package:xenon_store/theme.dart';
 import 'package:xenon_store/cubit/page_cubit.dart';
 import 'package:xenon_store/widget/custom_button_navbar.dart';
@@ -36,7 +36,9 @@ class _MainPageState extends State<MainPage> {
     Widget cartButton() {
       return FloatingActionButton(
         backgroundColor: secondaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        },
         child: Image.asset(
           "assets/icon_cart.png",
           width: 20,
@@ -47,7 +49,7 @@ class _MainPageState extends State<MainPage> {
     return BlocBuilder<PageCubit, int>(
       builder: (context, currentIndex) {
         return Scaffold(
-          backgroundColor: bgColor1,
+          backgroundColor: currentIndex == 0 ? bgColor1 : bgColor3,
           floatingActionButton: cartButton(),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,

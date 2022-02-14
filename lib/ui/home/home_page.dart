@@ -1,53 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:xenon_store/cubit/auth_cubit.dart';
+import 'package:xenon_store/cubit/product_cubit.dart';
+import 'package:xenon_store/models/product_model.dart';
 import 'package:xenon_store/theme.dart';
 import 'package:xenon_store/widget/popular_product_card.dart';
 import 'package:xenon_store/widget/product_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProductCubit>().getProducts();
+  }
+
   Widget build(BuildContext context) {
     Widget header() {
-      return Container(
-        margin: EdgeInsets.only(
-            top: defaultMargin, left: defaultMargin, right: defaultMargin),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, states) {
+          if (states is AuthSuccess) {
+            return Container(
+              margin: EdgeInsets.only(
+                  top: defaultMargin,
+                  left: defaultMargin,
+                  right: defaultMargin),
+              child: Row(
                 children: [
-                  Text(
-                    "Hello, Angga",
-                    style: pTextStyle.copyWith(
-                      fontSize: 24,
-                      fontWeight: semiBold,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hello, ${states.user.name}",
+                          style: pTextStyle.copyWith(
+                            fontSize: 24,
+                            fontWeight: semiBold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Text(
+                          "@${states.user.username}",
+                          style: subTextStyle.copyWith(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Text(
-                    "@anggasw16",
-                    style: subTextStyle.copyWith(
-                      fontSize: 16,
+                  Container(
+                    height: 54,
+                    width: 54,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: NetworkImage("${states.user.profilePhotoUrl}"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Container(
-              height: 54,
-              width: 54,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage("assets/image_profile.png"),
-                ),
-              ),
-            ),
-          ],
-        ),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
       );
     }
 
@@ -160,7 +186,7 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    Widget popularProducts() {
+    Widget popularProducts(List<ProductModel> products) {
       return Container(
         margin: EdgeInsets.only(top: defaultMargin),
         child: SingleChildScrollView(
@@ -171,11 +197,9 @@ class HomePage extends StatelessWidget {
                 width: defaultMargin,
               ),
               Row(
-                children: [
-                  PopularProductCards(),
-                  PopularProductCards(),
-                  PopularProductCards(),
-                ],
+                children: products.map((ProductModel products) {
+                  return PopularProductCards(products);
+                }).toList(),
               )
             ],
           ),
@@ -197,30 +221,49 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    Widget newArrivals() {
+    Widget newArrivals(List<ProductModel> products) {
       return Container(
         margin: EdgeInsets.only(top: 14),
         child: Column(
-          children: [
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-            ProductTile(),
-          ],
+          children: products.map((ProductModel products) {
+            return ProductTile(products);
+          }).toList(),
         ),
       );
     }
 
-    return ListView(
-      children: [
-        header(),
-        categories(),
-        popularProdutcsTitle(),
-        popularProducts(),
-        newArrivalsTitle(),
-        newArrivals(),
-      ],
+    return BlocBuilder<ProductCubit, ProductState>(
+      builder: (context, state) {
+        if (state is ProductLoading) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (state is ProductSuccess) {
+          return ListView(
+            children: [
+              header(),
+              categories(),
+              popularProdutcsTitle(),
+              popularProducts(state.products),
+              newArrivalsTitle(),
+              newArrivals(state.products),
+            ],
+          );
+        } else if (state is ProductFailed) {
+          return Center(
+            child: Text(
+              '${state.message}',
+              style: pTextStyle,
+            ),
+          );
+        }
+        return Center(
+          child: Text(
+            'Failed Get Product',
+            style: pTextStyle,
+          ),
+        );
+      },
     );
   }
 }

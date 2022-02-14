@@ -5,10 +5,13 @@ class CustomTextField extends StatelessWidget {
   final String title;
   final String imageUrl;
   final double top;
-  //final TextEditingController controller;
+  final TextEditingController controller;
   final bool obscureText;
+  final String hintText;
   const CustomTextField(
       {Key? key,
+      required this.hintText,
+      required this.controller,
       required this.title,
       required this.imageUrl,
       this.top =20,
@@ -47,10 +50,11 @@ class CustomTextField extends StatelessWidget {
                 ),
                 Expanded(
                     child: TextFormField(
+                      controller: controller,
                       obscureText: obscureText,
                   style: pTextStyle,
                   decoration: InputDecoration.collapsed(
-                      hintText: "Your Email Address", hintStyle: subTextStyle),
+                      hintText: hintText, hintStyle: subTextStyle),
                 ))
               ],
             ),
