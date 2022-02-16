@@ -21,16 +21,16 @@ class _MainPageState extends State<MainPage> {
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {
         case 0:
-          return HomePage();
+          return const HomePage();
         case 1:
-          return ChatPage();
+          return const ChatPage();
         case 2:
-          return WhislistPage();
+          return const WhislistPage();
         case 3:
-          return ProfilePage();
+          return const ProfilePage();
         default:
       }
-      return HomePage();
+      return const HomePage();
     }
 
     Widget cartButton() {

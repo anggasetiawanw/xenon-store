@@ -39,7 +39,7 @@ class WhislistPage extends StatelessWidget {
               "assets/image_whislist.png",
               width: 80,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -49,14 +49,14 @@ class WhislistPage extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
               "You have never done a transaction?",
               style: sTextStyle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             CustomButton(
@@ -75,7 +75,7 @@ class WhislistPage extends StatelessWidget {
         child: Container(
           color: bgColor3,
           child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
             children: products.map((ProductModel products) {
               return WhislistCard(products);
             }).toList(),
@@ -87,11 +87,13 @@ class WhislistPage extends StatelessWidget {
     return BlocBuilder<WishlistCubit, WishlistState>(
       builder: (context, state) {
         if (state is WishlistSuccess) {
+          print(state.wishlist.length);
           return Column(
             children: [
               header(),
-              //emptyWhislist(),
-              content(state.wishlist),
+              state.wishlist.isEmpty
+                  ? emptyWhislist()
+                  : content(state.wishlist),
             ],
           );
         } else if (state is WishlistFailed) {

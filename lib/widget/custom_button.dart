@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
       child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-              backgroundColor: changeColor ? Color(0xff39374B) : primaryColor,
+              backgroundColor: changeColor ? const Color(0xff39374B) : primaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12))),
           child: Text(
@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
                 ? GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: medium,
-                    color: Color(0xffB7B6BF),
+                    color: const Color(0xffB7B6BF),
                   )
                 : pTextStyle.copyWith(fontSize: 16, fontWeight: medium),
           )),

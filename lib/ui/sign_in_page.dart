@@ -25,7 +25,7 @@ class SignInPage extends StatelessWidget {
                   style: pTextStyle,
                   textAlign: TextAlign.center,
                 ),
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 backgroundColor: primaryColor,
               ),
             );
@@ -46,8 +46,8 @@ class SignInPage extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(
-              child: CircularProgressIndicator(),
+            return const Center(
+              child: const CircularProgressIndicator(),
             );
           }
           return CustomButton(
@@ -66,13 +66,13 @@ class SignInPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Container(
-            margin: EdgeInsets.symmetric(
+            margin: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Header(title: "Login", subTitle: "Sign In to Continue"),
+                const Header(title: "Login", subTitle: "Sign In to Continue"),
                 CustomTextField(
                   title: "Email Address",
                   imageUrl: "assets/icon_email.png",
@@ -88,7 +88,7 @@ class SignInPage extends StatelessWidget {
                   hintText: "Your Password",
                 ),
                 submitButton(),
-                Spacer(),
+                const Spacer(),
                 Footer(
                     title: "Don't have an account? ",
                     buttonTitle: "Sign Up",

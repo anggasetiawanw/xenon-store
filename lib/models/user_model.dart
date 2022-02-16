@@ -23,7 +23,7 @@ class UserModel {
     email = json['email'];
     username = json['username'];
     profilePhotoUrl = json['profile_photo_url'];
-    token = json['token'];
+    token = json['access_token'];
   }
 
   Map<String, dynamic> toJson() {

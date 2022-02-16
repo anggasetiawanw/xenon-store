@@ -29,12 +29,12 @@ class CustomTextField extends StatelessWidget {
             title,
             style: pTextStyle.copyWith(fontSize: 16, fontWeight: medium),
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           Container(
             height: 50,
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 16,
             ),
             decoration: BoxDecoration(
@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
                   imageUrl,
                   width: 17,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Expanded(

@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
               elevation: 0,
               flexibleSpace: SafeArea(
                 child: Container(
-                  padding: EdgeInsets.all(defaultMargin),
+                  padding: const EdgeInsets.all(defaultMargin),
                   child: Row(
                     children: [
                       ClipOval(
@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
                           width: 64,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Expanded(
@@ -62,7 +62,7 @@ class ProfilePage extends StatelessWidget {
               ),
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       );
@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
 
     Widget menuItem(String text) {
       return Container(
-        margin: EdgeInsets.only(top: 16),
+        margin: const EdgeInsets.only(top: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -78,10 +78,10 @@ class ProfilePage extends StatelessWidget {
               text,
               style: sTextStyle,
             ),
-            SizedBox(
+            const SizedBox(
               width: 16,
             ),
-            Icon(
+            const Icon(
               Icons.chevron_right,
               color: pTextColor,
             ),
@@ -94,12 +94,12 @@ class ProfilePage extends StatelessWidget {
       return Expanded(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          decoration: BoxDecoration(color: bgColor3),
+          padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+          decoration: const BoxDecoration(color: bgColor3),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -120,7 +120,7 @@ class ProfilePage extends StatelessWidget {
               menuItem(
                 "Help",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Text(

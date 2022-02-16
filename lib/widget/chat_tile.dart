@@ -11,7 +11,7 @@ class ChatTile extends StatelessWidget {
         Navigator.pushNamed(context, "/detail-chat");
       },
       child: Container(
-        margin: EdgeInsets.only(top: defaultMargin),
+        margin: const EdgeInsets.only(top: defaultMargin),
         child: Column(
           children: [
             Row(
@@ -20,7 +20,7 @@ class ChatTile extends StatelessWidget {
                   "assets/image_logo.png",
                   width: 54,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 12,
                 ),
                 Expanded(
@@ -47,12 +47,12 @@ class ChatTile extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
-            Divider(
+            const Divider(
               thickness: 1,
-              color: Color(0xff2b2939),
+              color:  Color(0xff2b2939),
             )
           ],
         ),

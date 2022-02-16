@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:xenon_store/cubit/cart_cubit.dart';
+import 'package:xenon_store/models/cart_model.dart';
 import 'package:xenon_store/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartCard extends StatelessWidget {
-  const CartCard({Key? key}) : super(key: key);
+  final CartModel cart;
+  const CartCard(this.cart, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: defaultMargin,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 10,
       ),
@@ -29,14 +33,14 @@ class CartCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
-                    image: AssetImage(
-                      "assets/image_shoes.png",
+                    image: NetworkImage(
+                      cart.product.galleries[0].url,
                     ),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12,
               ),
               Expanded(
@@ -44,16 +48,16 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Terrex Urban Low",
+                      cart.product.name,
                       style: pTextStyle.copyWith(
                         fontWeight: semiBold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2,
                     ),
                     Text(
-                      "\$143,98",
+                      "\$${cart.product.price}",
                       style: priceTextStyle,
                     ),
                   ],
@@ -61,48 +65,63 @@ class CartCard extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Image.asset(
-                    "assets/button_add.png",
-                    width: 16,
+                  GestureDetector(
+                    onTap: () {
+                      context.read<CartCubit>().addQuantity(cart.id);
+                    },
+                    child: Image.asset(
+                      "assets/button_add.png",
+                      width: 16,
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
                   Text(
-                    "2",
+                    cart.quantity.toString(),
                     style: pTextStyle.copyWith(fontWeight: medium),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 2,
                   ),
-                  Image.asset(
-                    "assets/button_min.png",
-                    width: 16,
+                  GestureDetector(
+                    onTap: () {
+                      context.read<CartCubit>().reduceQuantity(cart.id);
+                    },
+                    child: Image.asset(
+                      "assets/button_min.png",
+                      width: 16,
+                    ),
                   ),
                 ],
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
-          Row(
-            children: [
-              Image.asset(
-                "assets/icon_trash.png",
-                width: 10,
-              ),
-              SizedBox(
-                width: 6,
-              ),
-              Text(
-                "Remove",
-                style: GoogleFonts.poppins(color: alertColor).copyWith(
-                  fontSize: 12,
-                  fontWeight: light,
+          GestureDetector(
+            onTap: () {
+              context.read<CartCubit>().removeItem(cart.id);
+            },
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/icon_trash.png",
+                  width: 10,
                 ),
-              ),
-            ],
+                const SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  "Remove",
+                  style: GoogleFonts.poppins(color: alertColor).copyWith(
+                    fontSize: 12,
+                    fontWeight: light,
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),

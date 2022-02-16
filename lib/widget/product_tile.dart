@@ -14,7 +14,7 @@ class ProductTile extends StatelessWidget {
         Navigator.push(context,MaterialPageRoute(builder: (context)=> ProductPage(product)));
       },
       child: Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           left: defaultMargin,
           right: defaultMargin,
           bottom: defaultMargin,
@@ -24,13 +24,13 @@ class ProductTile extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                "${product.galleries[0].url}",
+                product.galleries[0].url,
                 fit: BoxFit.cover,
                 width: 120,
                 height: 120,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
             Expanded(
@@ -43,7 +43,7 @@ class ProductTile extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 6,
                     ),
                     Text(
@@ -53,7 +53,7 @@ class ProductTile extends StatelessWidget {
                         fontWeight: semiBold,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 6,
                     ),
                     Text(

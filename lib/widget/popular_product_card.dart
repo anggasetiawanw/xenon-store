@@ -17,7 +17,7 @@ class PopularProductCards extends StatelessWidget {
       child: Container(
         width: 215,
         height: 278,
-        margin: EdgeInsets.only(right: defaultMargin),
+        margin: const EdgeInsets.only(right: defaultMargin),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: productColor,
@@ -25,17 +25,17 @@ class PopularProductCards extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Image.network(
-              "${products.galleries[0].url}",
+              products.galleries[0].url,
               width: 215,
               height: 150,
               fit: BoxFit.cover,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -43,7 +43,7 @@ class PopularProductCards extends StatelessWidget {
                     products.category.name,
                     style: sTextStyle.copyWith(fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
@@ -52,7 +52,7 @@ class PopularProductCards extends StatelessWidget {
                         fontSize: 18, fontWeight: semiBold),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(

@@ -16,7 +16,7 @@ class CheckoutSuccessPage extends StatelessWidget {
               "assets/image_cart.png",
               width: 80,
             ),
-            SizedBox(
+           const  SizedBox(
               height: 20,
             ),
             Text(
@@ -26,7 +26,7 @@ class CheckoutSuccessPage extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
@@ -34,7 +34,7 @@ class CheckoutSuccessPage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: sTextStyle,
             ),
-            SizedBox(
+           const  SizedBox(
               height: 12,
             ),
             CustomButton(
@@ -47,7 +47,7 @@ class CheckoutSuccessPage extends StatelessWidget {
               width: 152,
               marginTop: 0,
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             CustomButton(

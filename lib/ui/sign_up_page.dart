@@ -28,7 +28,7 @@ class SignUpPage extends StatelessWidget {
                   style: pTextStyle,
                   textAlign: TextAlign.center,
                 ),
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 backgroundColor: primaryColor,
               ),
             );
@@ -49,7 +49,7 @@ class SignUpPage extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -71,13 +71,13 @@ class SignUpPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Container(
-            margin: EdgeInsets.symmetric(
+            margin: const EdgeInsets.symmetric(
               horizontal: defaultMargin,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Header(
+                const Header(
                     title: "Sign Up", subTitle: "Register and Happy Shoping"),
                 CustomTextField(
                   title: "Full Name",
@@ -106,7 +106,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: "Your Password",
                 ),
                 submitButton(),
-                Spacer(),
+                const Spacer(),
                 Footer(
                     title: "Already have an account? ",
                     buttonTitle: "Sign in",

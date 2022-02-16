@@ -10,7 +10,7 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget nameInput(String text) {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,7 +22,7 @@ class EditProfilePage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: text,
                 hintStyle: pTextStyle,
-                enabledBorder: UnderlineInputBorder(
+                enabledBorder:const  UnderlineInputBorder(
                   borderSide: BorderSide(color: subtitleColor),
                 ),
               ),
@@ -34,7 +34,7 @@ class EditProfilePage extends StatelessWidget {
 
     Widget usernameInput(String text) {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin:const  EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,7 +46,7 @@ class EditProfilePage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: text,
                 hintStyle: pTextStyle,
-                enabledBorder: UnderlineInputBorder(
+                enabledBorder:const  UnderlineInputBorder(
                   borderSide: BorderSide(color: subtitleColor),
                 ),
               ),
@@ -58,7 +58,7 @@ class EditProfilePage extends StatelessWidget {
 
     Widget emailInput(String text) {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin:const  EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -70,7 +70,7 @@ class EditProfilePage extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: text,
                 hintStyle: pTextStyle,
-                enabledBorder: UnderlineInputBorder(
+                enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: subtitleColor),
                 ),
               ),
@@ -86,14 +86,14 @@ class EditProfilePage extends StatelessWidget {
           if (state is AuthSuccess) {
             return Container(
                 width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                         width: 100,
                         height: 100,
-                        margin: EdgeInsets.only(top: defaultMargin),
+                        margin: const EdgeInsets.only(top: defaultMargin),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -108,7 +108,7 @@ class EditProfilePage extends StatelessWidget {
                   ],
                 ));
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       );
@@ -118,16 +118,16 @@ class EditProfilePage extends StatelessWidget {
       backgroundColor: bgColor3,
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(70),
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
           child: AppBar(
             centerTitle: true,
-            title: Text("Edit Profile"),
+            title: const Text("Edit Profile"),
             backgroundColor: bgColor1,
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.close, color: pTextColor),
+              icon: const Icon(Icons.close, color: pTextColor),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -135,7 +135,7 @@ class EditProfilePage extends StatelessWidget {
             actions: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.check,
                     color: primaryColor,
                   ))

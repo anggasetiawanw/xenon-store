@@ -9,20 +9,19 @@ abstract class WishlistState extends Equatable {
 
 class WishlistInitial extends WishlistState {}
 
-
 class WishlistSuccess extends WishlistState {
   final List<ProductModel> wishlist;
 
-  WishlistSuccess(this.wishlist);
+  const WishlistSuccess(this.wishlist);
 
   @override
   List<Object> get props => [wishlist];
 }
 
-class WishlistFailed extends WishlistState{
+class WishlistFailed extends WishlistState {
   final String message;
 
-  WishlistFailed(this.message);
+  const WishlistFailed(this.message);
 
   @override
   List<Object> get props => [message];

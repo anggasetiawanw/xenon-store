@@ -21,13 +21,14 @@ class _HomePageState extends State<HomePage> {
     context.read<ProductCubit>().getProducts();
   }
 
+  @override
   Widget build(BuildContext context) {
     Widget header() {
       return BlocBuilder<AuthCubit, AuthState>(
         builder: (context, states) {
           if (states is AuthSuccess) {
             return Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                   top: defaultMargin,
                   left: defaultMargin,
                   right: defaultMargin),
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: semiBold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
                         Text(
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       );
@@ -79,17 +80,17 @@ class _HomePageState extends State<HomePage> {
 
     Widget categories() {
       return Container(
-        margin: EdgeInsets.only(top: defaultMargin),
+        margin: const EdgeInsets.only(top: defaultMargin),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: defaultMargin,
               ),
               Container(
-                margin: EdgeInsets.only(right: 16),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -103,8 +104,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 16),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -119,8 +120,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 16),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -135,8 +136,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 16),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -151,8 +152,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 16),
-                padding: EdgeInsets.symmetric(
+                margin: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 10,
                 ),
@@ -174,7 +175,7 @@ class _HomePageState extends State<HomePage> {
 
     Widget popularProdutcsTitle() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: defaultMargin,
           right: defaultMargin,
           left: defaultMargin,
@@ -188,12 +189,12 @@ class _HomePageState extends State<HomePage> {
 
     Widget popularProducts(List<ProductModel> products) {
       return Container(
-        margin: EdgeInsets.only(top: defaultMargin),
+        margin: const EdgeInsets.only(top: defaultMargin),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: defaultMargin,
               ),
               Row(
@@ -209,7 +210,7 @@ class _HomePageState extends State<HomePage> {
 
     Widget newArrivalsTitle() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: const EdgeInsets.only(
           top: defaultMargin,
           right: defaultMargin,
           left: defaultMargin,
@@ -223,7 +224,7 @@ class _HomePageState extends State<HomePage> {
 
     Widget newArrivals(List<ProductModel> products) {
       return Container(
-        margin: EdgeInsets.only(top: 14),
+        margin: const EdgeInsets.only(top: 14),
         child: Column(
           children: products.map((ProductModel products) {
             return ProductTile(products);
@@ -235,8 +236,8 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
         if (state is ProductLoading) {
-          return Center(
-            child: CircularProgressIndicator(),
+          return const Center(
+            child:  CircularProgressIndicator(),
           );
         } else if (state is ProductSuccess) {
           return ListView(
@@ -252,7 +253,7 @@ class _HomePageState extends State<HomePage> {
         } else if (state is ProductFailed) {
           return Center(
             child: Text(
-              '${state.message}',
+              state.message,
               style: pTextStyle,
             ),
           );

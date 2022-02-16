@@ -4,7 +4,7 @@ class GalleryModel extends Equatable {
   final int id;
   final String url;
 
-  GalleryModel({
+  const GalleryModel({
     this.id = 0,
     this.url = "",
   });
@@ -20,5 +20,5 @@ class GalleryModel extends Equatable {
   };
 
   @override
-  List<Object> get props => [this.id, this.url];
+  List<Object> get props => [id, url];
 }

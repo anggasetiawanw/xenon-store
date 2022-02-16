@@ -36,7 +36,7 @@ class ChatPage extends StatelessWidget {
               "assets/image_headset.png",
               width: 80,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -46,14 +46,14 @@ class ChatPage extends StatelessWidget {
                 fontWeight: medium,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Text(
               "You have never done a transaction?",
               style: sTextStyle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             CustomButton(
@@ -73,9 +73,9 @@ class ChatPage extends StatelessWidget {
         color: bgColor3,
         width: double.infinity,
         child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          children: [
-            ChatTile()
+          padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+          children: const [
+             ChatTile()
           ],
         )
       ));

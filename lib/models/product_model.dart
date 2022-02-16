@@ -1,15 +1,15 @@
-import 'package:equatable/equatable.dart';
+
 import 'package:xenon_store/models/category_model.dart';
 import 'package:xenon_store/models/gallery_model.dart';
 
-class ProductModel extends Equatable {
-  final int id;
-  final String name;
-  final int price;
-  final String description;
-  final CategoryModel category;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
+class ProductModel {
+   int id;
+  String name;
+   int price;
+   String description;
+   CategoryModel category;
+   DateTime? createdAt;
+   DateTime? updatedAt;
   List<GalleryModel> galleries;
 
   ProductModel({
@@ -49,13 +49,5 @@ class ProductModel extends Equatable {
         'galleries': galleries.map((e) => e.toJson()).toList(),
       };
 
-  @override
-  List<Object> get props => [
-        id,
-        name,
-        price,
-        description,
-        category,
-        galleries,
-      ];
+  
 }

@@ -10,11 +10,10 @@ class CustomButtonNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex;
     return ClipRRect(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
       child: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 16,
         clipBehavior: Clip.antiAlias,
         child: BottomNavigationBar(
@@ -27,7 +26,7 @@ class CustomButtonNavbar extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 20,
                     bottom: 10,
                   ),
@@ -36,14 +35,14 @@ class CustomButtonNavbar extends StatelessWidget {
                     width: 21,
                     color: context.read<PageCubit>().state == 0
                         ? primaryColor
-                        : Color(0xff808191),
+                        : const Color(0xff808191),
                   ),
                 ),
                 label: "",
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 20,
                     bottom: 10,
                   ),
@@ -52,14 +51,14 @@ class CustomButtonNavbar extends StatelessWidget {
                     width: 20,
                     color: context.read<PageCubit>().state == 1
                         ? primaryColor
-                        : Color(0xff808191),
+                        : const Color(0xff808191),
                   ),
                 ),
                 label: "",
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 20,
                     bottom: 10,
                   ),
@@ -68,14 +67,14 @@ class CustomButtonNavbar extends StatelessWidget {
                     width: 20,
                     color: context.read<PageCubit>().state == 2
                         ? primaryColor
-                        : Color(0xff808191),
+                        : const Color(0xff808191),
                   ),
                 ),
                 label: "",
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     top: 20,
                     bottom: 10,
                   ),
@@ -84,7 +83,7 @@ class CustomButtonNavbar extends StatelessWidget {
                     width: 18,
                     color: context.read<PageCubit>().state == 3
                         ? primaryColor
-                        : Color(0xff808191),
+                        : const Color(0xff808191),
                   ),
                 ),
                 label: "",

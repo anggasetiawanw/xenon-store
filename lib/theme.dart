@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-double defaultMargin = 30.0;
+const double defaultMargin = 30.0;
 
-Color primaryColor = Color(0xFFF58A07);
-Color secondaryColor = Color(0xFF38ABBE);
-Color alertColor = Color(0xFFED6363);
-Color priceColor = Color(0xff2c96f1);
-Color bgColor1 = Color(0xff1f1d2B);
-Color bgColor2 = Color(0xff2b2937);
-Color bgColor3 = Color(0xff242231);
-Color bgColor4 = Color(0xff252836);
-Color bgColor5 = Color(0xff443528);
-Color bgColor6 = Color(0xffECEDEF);
-Color pTextColor = Color(0xfff1f0f2);
-Color sTextColor = Color(0xff999999);
-Color subtitleColor = Color(0xff504f5e);
-Color dotColor = Color(0xffC4C4C4);
-Color transparentColor = Colors.transparent;
-Color blackColor = Color(0xff2e2e2e);
-Color productColor = Color(0xffECEDEF);
+const Color primaryColor = Color(0xFFF58A07);
+const Color secondaryColor = Color(0xFF38ABBE);
+const Color alertColor = Color(0xFFED6363);
+const Color priceColor = Color(0xff2c96f1);
+const Color bgColor1 = Color(0xff1f1d2B);
+const Color bgColor2 = Color(0xff2b2937);
+const Color bgColor3 = Color(0xff242231);
+const Color bgColor4 = Color(0xff252836);
+const Color bgColor5 = Color(0xff443528);
+const Color bgColor6 = Color(0xffECEDEF);
+const Color pTextColor = Color(0xfff1f0f2);
+const Color sTextColor = Color(0xff999999);
+const Color subtitleColor = Color(0xff504f5e);
+const Color dotColor = Color(0xffC4C4C4);
+const Color transparentColor = Colors.transparent;
+const Color blackColor = Color(0xff2e2e2e);
+const Color productColor = Color(0xffECEDEF);
 
 TextStyle pTextStyle = GoogleFonts.poppins(
   color: pTextColor,

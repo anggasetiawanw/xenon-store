@@ -4,13 +4,12 @@ import 'package:xenon_store/widget/chat_bubble.dart';
 
 class DetailsChat extends StatelessWidget {
   const DetailsChat({Key? key}) : super(key: key);
-  @override
   Widget productPreview() {
     return Container(
       width: 225,
       height: 74,
-      margin: EdgeInsets.only(bottom: 20),
-      padding: EdgeInsets.all(10),
+      margin:const  EdgeInsets.only(bottom: 20),
+      padding:const  EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: bgColor5,
         borderRadius: BorderRadius.circular(12),
@@ -23,7 +22,7 @@ class DetailsChat extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             child: Image.asset("assets/image_shoes.png"),
           ),
-          SizedBox(
+         const  SizedBox(
             width: 10,
           ),
           Expanded(
@@ -35,7 +34,7 @@ class DetailsChat extends StatelessWidget {
                   "COURT VISIO...",
                   style: pTextStyle.copyWith(overflow: TextOverflow.ellipsis),
                 ),
-                SizedBox(
+               const  SizedBox(
                   height: 2,
                 ),
                 Text(
@@ -58,7 +57,7 @@ class DetailsChat extends StatelessWidget {
 
   Widget chatInput() {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin:const  EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +68,7 @@ class DetailsChat extends StatelessWidget {
               Expanded(
                   child: Container(
                 height: 45,
-                padding: EdgeInsets.symmetric(
+                padding:const  EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 12,
                 ),
@@ -86,7 +85,7 @@ class DetailsChat extends StatelessWidget {
                   ),
                 ),
               )),
-              SizedBox(
+             const  SizedBox(
                 width: 20,
               ),
               Image.asset(
@@ -102,8 +101,8 @@ class DetailsChat extends StatelessWidget {
 
   Widget content() {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-      children: [
+      padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+      children:const  [
         ChatBubble(
           text: 'Hi, This item is still available?',
           isSender: true,
@@ -118,11 +117,12 @@ class DetailsChat extends StatelessWidget {
   }
   
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor3,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
+        preferredSize:const  Size.fromHeight(70),
         child: AppBar(
           backgroundColor: bgColor1,
           centerTitle: false,
@@ -132,7 +132,7 @@ class DetailsChat extends StatelessWidget {
                 "assets/image_logo_online.png",
                 width: 50,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12,
               ),
               Column(

@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: defaultMargin),
+      margin: const EdgeInsets.only(top: defaultMargin),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -19,7 +19,7 @@ class Header extends StatelessWidget {
             title,
             style: pTextStyle.copyWith(fontSize: 24, fontWeight: semiBold),
           ),
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
           Text(

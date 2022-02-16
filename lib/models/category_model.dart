@@ -4,7 +4,7 @@ class CategoryModel extends Equatable {
   final int id;
   final String name;
 
-  CategoryModel({
+  const CategoryModel({
     this.id = 0,
     this.name = "",
   });
@@ -20,5 +20,5 @@ class CategoryModel extends Equatable {
       };
 
   @override
-  List<Object> get props => [this.id, this.name];
+  List<Object> get props => [id,name];
 }

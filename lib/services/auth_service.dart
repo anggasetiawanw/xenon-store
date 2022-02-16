@@ -66,7 +66,7 @@ class AuthService {
       return users;
       */
       UserModel user = UserModel.fromJson(data['user']);
-      user.token = data['token'];
+      user.token = data['access_token'];
       return user;
     } else {
       print("Gagal di AuthService: Gagal Login");
